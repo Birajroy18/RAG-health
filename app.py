@@ -11,6 +11,8 @@ st.set_page_config(page_title="Healthcare Assistant", page_icon="🩺", layout="
 
 
 def get_configured_api_key(key: str) -> str:
+    if key in st.secrets and st.secrets[key]:
+        return str(st.secrets[key]).strip()
     try:
         secret_key = st.secrets.get(key)
         if secret_key:
@@ -98,7 +100,10 @@ with st.sidebar:
     )
     st.markdown("---")
 
-    if not gemini_api_key:
+    # Gemini API Key Verification
+    if gemini_api_key:
+        st.success("🔒 Gemini API Key loaded from Secrets")
+    else:
         gemini_api_key = st.text_input(
             "Gemini API Key",
             type="password",
@@ -106,14 +111,18 @@ with st.sidebar:
             help="Preferred for query cleanup and grounded answer generation.",
         )
 
-    if not openrouter_api_key:
+    # OpenRouter API Key Verification
+    if openrouter_api_key:
+        st.success("🔒 OpenRouter API Key loaded from Secrets")
+    else:
         openrouter_api_key = st.text_input(
             "OpenRouter API Key (fallback)",
             type="password",
             placeholder="sk-or-...",
             help="Optional fallback if Gemini is unavailable.",
         )
-        st.markdown("---")
+        
+    st.markdown("---")
 
     if st.session_state.chat_history:
         for index, chat in enumerate(st.session_state.chat_history, start=1):
