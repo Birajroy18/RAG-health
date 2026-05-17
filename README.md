@@ -1,6 +1,6 @@
 # MedAI - Medical Literature and Patient Education Assistant
 
-LIVE LINK: https://rag-assistant-j4bwmtgxuottghxnheayqv.streamlit.app/
+LIVE LINK: https:https://rag-health-9xpsshipaf2wgyuv6eshzh.streamlit.app/
 
 MedAI is a Streamlit assistant that answers health questions using retrieved medical sources. It combines patient-friendly education sources for common symptom and treatment questions with research literature and drug-label sources for deeper clinical and research questions.
 
