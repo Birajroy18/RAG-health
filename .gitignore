@@ -1,0 +1,20 @@
+# Secrets (never commit)
+secrets.toml
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Old RAG index artifacts
+faiss_index.bin
+chunks.pkl
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
